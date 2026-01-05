@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahesh Sarang - Community Development</title>
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --orange: #FF6B35;
+            --green: #2E8B57;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --dark-gray: #333333;
+            --light-orange: #FFA726;
+            --light-green: #4CAF50;
+            --dark-blue: #1E3A8A;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header with Logo */
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            border: 3px solid var(--orange);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--orange), var(--white), var(--green));
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-name-bg {
+            position: absolute;
+            font-size: 12rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.1);
+            transform: rotate(-15deg);
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+        }
+
+        .profile-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .profile-photo {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            object-fit: cover;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            margin-right: 40px;
+        }
+
+        .leader-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .leader-name {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .party-opportunity {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            animation: reflexBlink 3s infinite;
+            position: relative;
+        }
+
+        @keyframes reflexBlink {
+            0%, 100% { opacity: 1; filter: brightness(1); }
+            48%, 52% { opacity: 0.7; filter: brightness(1.2); }
+            50% { opacity: 1; filter: brightness(1.4); text-shadow: 0 0 10px rgba(30, 58, 138, 0.6); }
+        }
+
+        .slogan {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #000000;
+            text-shadow: 0 2px 6px rgba(255, 255, 255, 0.8);
+            animation: blink 2s infinite;
+            max-width: 500px;
+            line-height: 1.4;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .team-container {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .team-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--white);
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .team-photo:hover {
+            transform: scale(1.15);
+        }
+
+        /* Work Section */
+        .work-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--dark-gray);
+            position: relative;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+
+        .section-title span {
+            color: var(--green);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--orange);
+            border-radius: 2px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .work-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .work-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .work-content {
+            padding: 20px;
+        }
+
+        .work-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--green);
+            font-weight: 600;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .work-summary {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .view-more-btn {
+            background-color: var(--orange);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .view-more-btn:hover {
+            background-color: var(--light-orange);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 30px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+            font-weight: bold;
+        }
+
+        .modal-title {
+            color: var(--green);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .modal-description {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .modal-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .facebook-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #1877f2;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .facebook-link:hover {
+            background-color: #166fe5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+        }
+
+        .facebook-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .header {
+                top: 15px;
+                left: 15px;
+            }
+            
+            .logo-container {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .logo {
+                width: 65px;
+                height: 65px;
+            }
+            
+            .profile-container {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .profile-photo {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .leader-info {
+                margin-top: 0;
+                align-items: center;
+            }
+            
+            .slogan {
+                text-align: center;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .logo-container {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .logo {
+                width: 55px;
+                height: 55px;
+            }
+            
+            .hero-name-bg {
+                font-size: 8rem;
+                transform: rotate(-10deg);
+            }
+            
+            .profile-photo {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .leader-name {
+                font-size: 2.2rem;
+            }
+            
+            .party-opportunity {
+                font-size: 1.1rem;
+            }
+            
+            .slogan {
+                font-size: 1.8rem;
+            }
+            
+            .team-photo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            .facebook-link {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .logo-container {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .hero-name-bg {
+                font-size: 5rem;
+            }
+            
+            .profile-photo {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .leader-name {
+                font-size: 1.8rem;
+            }
+            
+            .party-opportunity {
+                font-size: 0.9rem;
+            }
+            
+            .slogan {
+                font-size: 1.4rem;
+            }
+            
+            .team-container {
+                gap: 20px;
+            }
+            
+            .team-photo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .facebook-link {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/sxL0FWrh/bjp-bhartiya-janta-party-logo-png-seeklogo-430433.png" alt="BJP Logo" class="logo">
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-name-bg">Mahesh Sarang</h1>
+        <div class="profile-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5mrATKbBhNjJ2tJq1pT4VkUePVhu83elDb5qZRl4UFFtPGrhZCPOkwis&s=10" alt="Mahesh Sarang" class="profile-photo">
+            <div class="leader-info">
+                <h2 class="leader-name">MAHESH SARANG</h2>
+                <p class="party-opportunity">सरचिटणीस, भाजपा सिंधुदुर्ग</p>
+                <div class="slogan">सेवा, विकास आणि प्रामाणिकपणा हेच आमच्या उमेदवाराची ओळखपत्रे.</div>
+            </div>
+        </div>
+        <div class="team-container">
+            <!-- Swapped T1 and T2 positions -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo94iNBHt3fjlq24xSjYWhFjItfabjuPwaWje0VzJAXQ&s=10" alt="Team Member 2" class="team-photo"> <!-- Now T1 position -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCRBRTi-HkYhyF5yOXE8Zq49uuRqk7ZJDNqUznGqhVOQ&s=10" alt="Team Member 1" class="team-photo"> <!-- Now T2 position -->
+            <img src="https://www.thehawk.in/_next/image?url=https%3A%2F%2Fd2py10ayqu2jji.cloudfront.net%2F38a0dee0-91e3-41e4-a78c-9697b33e5df7%2F202506303440891-c7dc2de6-4908-4626-bee5-c5169b62f445.jpg&w=3840&q=75" alt="Team Member 3" class="team-photo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE83Q0vLzFMeshaXU-1yofgMCQjY_Mbn6ssTjTORtFugFvgPaw3QUmq2zA&s=10" alt="Team Member 4" class="team-photo">
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section class="work-section">
+        <div class="container">
+            <h2 class="section-title">लोकहितासाठी राबवलेली विकासकामे</h2>
+            <div class="work-grid">
+                <!-- Work Card 1 -->
+                <div class="work-card">
+                    <img src="https://i.postimg.cc/6qBFq8fd/a7e09117-cbcb-48f4-9c20-69c0caf66327.jpg" alt="ग्रामसचिवालय भूमिपूजन सोहळा" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">ग्रामसचिवालय भूमिपूजन सोहळा</h3>
+                        <p class="work-summary">ग्रामसचिवालयाच्या नवीन इमारतीच्या बांधकामासाठी भूमिपूजन सोहळ्याचे आयोजन करून ग्रामस्तरावरील प्रशासनाची सुविधा सुधारण्याचे प्रयत्न.</p>
+                        <button class="view-more-btn" onclick="openModal('gramsachivalaya')">View More</button>
+                    </div>
+                </div>
+
+                <!-- Work Card 2 -->
+                <div class="work-card">
+                    <img src="https://i.postimg.cc/BvsTd2Sc/313e00b9-5def-4e7f-977a-855e9119c31e.jpg" alt="समुर्दिनगर रस्ता भूमिपूजन सोहळा" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">समुर्दिनगर रस्ता भूमिपूजन सोहळा</h3>
+                        <p class="work-summary">समुर्दिनगर परिसरातील नवीन रस्त्याच्या विकासासाठी भूमिपूजन सोहळ्याचे आयोजन करून प्रगतीपथावर आणण्याचे प्रयत्न.</p>
+                        <button class="view-more-btn" onclick="openModal('samrudhinagar')">View More</button>
+                    </div>
+                </div>
+
+                <!-- Work Card 3 -->
+                <div class="work-card">
+                    <img src="https://i.postimg.cc/7YwTPqvs/ea3a9271-a5da-4814-b6bf-9875d3f5b591.jpg" alt="कोलंगाव –बेळंगाव हायवे रस्ता मजबूतीकरण" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">कोलंगाव –बेळंगाव हायवेपासून प्रकाश मिस्त्री यांच्या घरापर्यंतचा रस्ता मजबूतकरण सोहळा</h3>
+                        <p class="work-summary">कोलंगाव ते बेळंगाव हायवेपासून प्रकाश मिस्त्री यांच्या घरापर्यंतच्या रस्त्याचे मजबूतीकरण करून स्थानिक लोकांना चांगल्या वाहतूक सुविधा उपलब्ध करून दिल्या.</p>
+                        <button class="view-more-btn" onclick="openModal('kolangao')">View More</button>
+                    </div>
+                </div>
+
+                <!-- Work Card 4 -->
+                <div class="work-card">
+                    <img src="https://i.postimg.cc/7hbd0pjS/d7f328df-ab55-4c14-9567-86fa93b76b67.jpg" alt="कुणकेरी केशलवाडी रस्ता मजबूति करन सोहळा" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">कुणकेरी केशलवाडी रस्ता मजबूति करन सोहळा</h3>
+                        <p class="work-summary">कुणकेरी केशलवाडी या भागातील रस्त्याचे मजबूतीकरण करून स्थानिक रहिवाशांना चांगल्या वाहतूक सुविधा उपलब्ध करून दिल्या आणि दुर्गम भागाचा विकास साधला.</p>
+                        <button class="view-more-btn" onclick="openModal('kunkeri')">View More</button>
+                    </div>
+                </div>
+
+                <!-- Work Card 5 - CORRECTED TITLE -->
+                <div class="work-card">
+                    <img src="https://i.postimg.cc/wxPbn4St/6d065045-56c6-4bd5-b213-167d650065d6.jpg" alt="नाईकबाग येथील रस्त्याचा भूमिपूजन सोहळा" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">नाईकबाग येथील रस्त्याचा भूमिपूजन सोहळा</h3>
+                        <p class="work-summary">नाईकबाग येथील नवीन रस्त्याच्या विकासासाठी भूमिपूजन सोहळ्याचे आयोजन करून परिसरातील वाहतूक सुविधा सुधारण्याचे प्रयत्न.</p>
+                        <button class="view-more-btn" onclick="openModal('nayakbag')">View More</button>
+                    </div>
+                </div>
+
+                <!-- Work Card 6 -->
+                <div class="work-card">
+                    <img src="https://i.postimg.cc/PppS9vwK/IMG-20260103-WA0006.jpg" alt="आंबेगाव म्हारकटेवाडी रस्ता मु.ग्राम सडक योजनेंतर्गत भूमिपूजन सोहळा" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">आंबेगाव म्हारकटेवाडी रस्ता मु.ग्राम सडक योजनेंतर्गत भूमिपूजन सोहळा</h3>
+                        <p class="work-summary">आंबेगाव म्हारकटेवाडी येथील रस्त्याच्या विकासासाठी मुख्यमंत्री ग्राम सडक योजनेंतर्गत भूमिपूजन सोहळ्याचे आयोजन करून ग्रामीण भागाच्या जोडणीचे प्रयत्न.</p>
+                        <button class="view-more-btn" onclick="openModal('ambevadi')">View More</button>
+                    </div>
+                </div>
+
+                <!-- Work Card 7 -->
+                <div class="work-card">
+                    <img src="https://i.postimg.cc/RqfJMkkB/1234.jpg" alt="कुंभळेवाडी रस्ता भूमिपूजन सोहळा" class="work-image">
+                    <div class="work-content">
+                        <h3 class="work-title">कुंभळेवाडी रस्ता भूमिपूजन सोहळा</h3>
+                        <p class="work-summary">कुंभळेवाडी येथील रस्त्याच्या विकासासाठी भूमिपूजन सोहळ्याचे आयोजन करून परिसरातील वाहतूक सुविधा सुधारण्याचे प्रयत्न.</p>
+                        <button class="view-more-btn" onclick="openModal('kumbhalvadi')">View More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Facebook Link -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="https://www.facebook.com/share/17cGkizMRE/" target="_blank" class="facebook-link">
+                    <svg class="facebook-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    आमच्या फेसबुक पेजवर भेट द्या
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Gramsachivalaya Modal - PHOTOS REMOVED -->
+    <div id="gramsachivalaya" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('gramsachivalaya')">&times;</span>
+            <h3 class="modal-title">ग्रामसचिवालय भूमिपूजन सोहळा</h3>
+            <p class="modal-description">ग्रामसचिवालयाच्या नवीन इमारतीच्या बांधकामासाठी भूमिपूजन सोहळ्याचे आयोजन करण्यात आले. या नवीन इमारतीमुळे ग्रामस्तरावरील प्रशासकीय कामकाजाची सुविधा वाढेल आणि नागरिकांना अधिक चांगल्या पद्धतीने सेवा मिळेल. सोहळ्याला ग्रामस्तांची मोठ्या प्रमाणावर उपस्थिती होती आणि सर्वांनी या विकासकामाचे कौतुक केले.</p>
+            <div class="modal-images">
+                <!-- All images removed as requested -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Samrudhinagar Modal - PHOTOS REMOVED -->
+    <div id="samrudhinagar" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('samrudhinagar')">&times;</span>
+            <h3 class="modal-title">समुर्दिनगर रस्ता भूमिपूजन सोहळा</h3>
+            <p class="modal-description">समुर्दिनगर परिसरातील नवीन रस्त्याच्या विकासासाठी भूमिपूजन सोहळ्याचे आयोजन करण्यात आले. हा रस्ता परिसरातील वाहतूक सुविधा सुधारेल आणि स्थानिक व्यापाराला चालना मिळेल. सोहळ्यास ग्रामस्त आणि स्थानिक नेत्यांची मोठ्या प्रमाणावर उपस्थिती होती.</p>
+            <div class="modal-images">
+                <!-- All images removed as requested -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Kolangao-Belangao Modal - PHOTOS REMOVED -->
+    <div id="kolangao" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('kolangao')">&times;</span>
+            <h3 class="modal-title">कोलंगाव –बेळंगाव हायवेपासून प्रकाश मिस्त्री यांच्या घरापर्यंतचा रस्ता मजबूतकरण सोहळा</h3>
+            <p class="modal-description">कोलंगाव ते बेळंगाव हायवेपासून प्रकाश मिस्त्री यांच्या घरापर्यंतच्या रस्त्याचे मजबूतीकरण करण्यात आले आहे. या रस्त्यामुळे स्थानिक रहिवाशांना चांगल्या वाहतूक सुविधा उपलब्ध झाल्या आहेत आणि दुर्गम भागातील लोकांची सुविधा वाढली आहे. सोहळ्यास ग्रामस्त आणि स्थानिक अधिकाऱ्यांची मोठ्या प्रमाणावर उपस्थिती होती.</p>
+            <div class="modal-images">
+                <!-- All images removed as requested -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Kunkeri Keshalwadi Modal -->
+    <div id="kunkeri" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('kunkeri')">&times;</span>
+            <h3 class="modal-title">कुणकेरी केशलवाडी रस्ता मजबूति करन सोहळा</h3>
+            <p class="modal-description">कुणकेरी केशलवाडी या भागातील रस्त्याचे मजबूतीकरण करण्यात आले आहे. या रस्त्यामुळे स्थानिक रहिवाशांना चांगल्या वाहतूक सुविधा उपलब्ध झाल्या आहेत आणि दुर्गम भागाचा विकास साधला आहे. सोहळ्यास ग्रामस्त आणि स्थानिक नेत्यांची मोठ्या प्रमाणावर उपस्थिती होती आणि सर्वांनी या विकासकामाचे कौतुक केले.</p>
+            <div class="modal-images">
+                <img src="https://i.postimg.cc/7hbd0pjS/d7f328df-ab55-4c14-9567-86fa93b76b67.jpg" alt="कुणकेरी रस्ता 1" class="modal-image">
+                <img src="https://i.postimg.cc/dh4DDwQQ/9876.jpg" alt="कुणकेरी सोहळा फोटो 2" class="modal-image">
+                <img src="https://i.postimg.cc/dh4DDwQQ/9876.jpg" alt="कुणकेरी सोहळा फोटो 3" class="modal-image">
+                <img src="https://i.postimg.cc/VdsWhsVp/0-09887642.jpg" alt="कुणकेरी सोहळा फोटो 4" class="modal-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Nayakbag Modal -->
+    <div id="nayakbag" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('nayakbag')">&times;</span>
+            <h3 class="modal-title">नाईकबाग येथील रस्त्याचा भूमिपूजन सोहळा</h3>
+            <p class="modal-description">नाईकबाग येथील नवीन रस्त्याच्या विकासासाठी भूमिपूजन सोहळ्याचे आयोजन करण्यात आले आहे. हा रस्ता परिसरातील वाहतूक सुविधा सुधारेल आणि स्थानिक लोकांना चांगल्या पद्धतीने जोडणी उपलब्ध होईल. सोहळ्यास ग्रामस्त आणि स्थानिक नेत्यांची मोठ्या प्रमाणावर उपस्थिती होती आणि सर्वांनी या विकासकामाचे कौतुक केले.</p>
+            <div class="modal-images">
+                <!-- Removed all images as previously requested -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Ambevadi Modal -->
+    <div id="ambevadi" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('ambevadi')">&times;</span>
+            <h3 class="modal-title">आंबेगाव म्हारकटेवाडी रस्ता मु.ग्राम सडक योजनेंतर्गत भूमिपूजन सोहळा</h3>
+            <p class="modal-description">आंबेगाव म्हारकटेवाडी येथील रस्त्याच्या विकासासाठी मुख्यमंत्री ग्राम सडक योजनेंतर्गत भूमिपूजन सोहळ्याचे आयोजन करण्यात आले आहे. या रस्त्यामुळे ग्रामीण भागाची जोडणी सुधारेल आणि लोकांना चांगल्या वाहतूक सुविधा उपलब्ध होतील. सोहळ्यास ग्रामस्त आणि स्थानिक नेत्यांची मोठ्या प्रमाणावर उपस्थिती होती.</p>
+            <div class="modal-images">
+                <img src="https://i.postimg.cc/470yJ55g/ab.jpg" alt="आंबेगाव फोटो 1" class="modal-image">
+                <img src="https://i.postimg.cc/hfTvBV7t/ab23.jpg" alt="आंबेगाव फोटो 2" class="modal-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Kumbhalvadi Modal -->
+    <div id="kumbhalvadi" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('kumbhalvadi')">&times;</span>
+            <h3 class="modal-title">कुंभळेवाडी रस्ता भूमिपूजन सोहळा</h3>
+            <p class="modal-description">कुंभळेवाडी येथील रस्त्याच्या विकासासाठी भूमिपूजन सोहळ्याचे आयोजन करण्यात आले आहे. हा रस्ता परिसरातील वाहतूक सुविधा सुधारेल आणि स्थानिक लोकांना चांगल्या पद्धतीने जोडणी उपलब्ध होईल. सोहळ्यास ग्रामस्त आणि स्थानिक नेत्यांची मोठ्या प्रमाणावर उपस्थिती होती आणि सर्वांनी या विकासकामाचे कौतुक केले.</p>
+            <div class="modal-images">
+                <img src="https://i.postimg.cc/kVbRBL2S/123457.jpg" alt="कुंभळेवाडी फोटो 1" class="modal-image">
+                <img src="https://i.postimg.cc/Yj63WR2k/6d065045-56c6-4bd5-b213-167d650065d6.jpg" alt="कुंभळेवाडी फोटो 2" class="modal-image">
+                <img src="https://i.postimg.cc/kVbRBL2S/123457.jpg" alt="कुंभळेवाडी फोटो 3" class="modal-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the content
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const openModals = document.querySelectorAll('.modal[style*="display: flex"]');
+                openModals.forEach(modal => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
